@@ -8,7 +8,7 @@ nav {
   padding-right: 1.5em;
 }
 
-nav .nav-icon {
+.nav-icon {
   display: flex;
   font-family: 'Bungee', sans-serif;
   font-size: 50px;
@@ -19,6 +19,8 @@ nav .nav-icon {
 
 .nav-cta {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: end;
   align-items: center;
+  padding-bottom: 20px;
 }
