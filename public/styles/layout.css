@@ -15,14 +15,28 @@ html {
  */
 
 body {
+  display: flex;
+  width: 100%;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   font-style: normal;
+  border: 3px yellow;
+  border-style: dashed;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+main {
+  display: flex;
+  width: 90%;
+  height: 500px;
+  border: 2px red;
+  border-style: dashed;
+  flex-direction: column;
+}
