@@ -9,14 +9,17 @@ button {
   border-bottom: none;
 }
 
+main h2 {
+  display: none;
+}
 
 form {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .new-tweet label {
-
   font-weight: 600;
 }
 
@@ -42,4 +45,8 @@ form div {
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
+}
+
+.counter.character-error {
+  color:red;
 }
