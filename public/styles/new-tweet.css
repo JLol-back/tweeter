@@ -74,6 +74,11 @@ article.tweet header {
 article.tweet header div {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+img {
+  padding-right: 10px;
 }
 
 article.tweet header .handle {
