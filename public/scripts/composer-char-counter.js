@@ -2,11 +2,11 @@ $(document).ready(function() {
   
   $("#tweet-text").on("keyup", function(e) {
  
-    console.log(e.key);
-    console.log(this);
+    //console.log(e.key);
+    //console.log(this);
 
     textArea = $("#tweet-text");
-    console.log("text:", textArea.val(), textArea.val().length);
+    //console.log("text:", textArea.val(), textArea.val().length);
 
     maxChar = 140;
     
