@@ -7,7 +7,9 @@
 $(document).ready(function() {
 
 // Test / driver code (temporary). Eventually will get this from the server.
-  const data = [
+/*
+
+const data = [
     {
       "user": {
         "name": "Newton",
@@ -31,7 +33,7 @@ $(document).ready(function() {
       "created_at": 1461113959088
     }
   ]
-
+*/
 
 const createTweetElement = function(tweetData) {
 
@@ -71,6 +73,36 @@ const renderTweets = function(tweets) {
 
 };
 
-renderTweets(data);
+//renderTweets(data);
+
+
+
+const loadTweets = function () {
+  $.ajax("/tweets", { method: "GET" })
+  .then(function (tweetJSON) {
+    console.log('Success: ', tweetJSON);
+    renderTweets(tweetJSON);
+  })
+}
+
+loadTweets();
+
+
+/**
+ * On form submit, prevent the default form action to user stays on page,
+ * transform form data into a query string, asynchronously POST data to
+ * the tweets route, and finally, clear the form.
+ */
+
+$( "form" ).on( "submit", function( event ) {
+  event.preventDefault();
+  const data = $( this ).serialize();
+  $.ajax("/tweets", { method: "POST", data: data, });
+  document.querySelector("form").reset();
+  loadTweets();
+});
+
+
+// Close of document.ready function
 
 });
