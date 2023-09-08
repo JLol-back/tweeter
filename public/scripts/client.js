@@ -68,6 +68,20 @@ loadTweets();
 $( "form" ).on( "submit", function( event ) {
   event.preventDefault();
   const data = $( this ).serialize();
+
+  console.log(data);
+  const tweetText = data.slice(5);
+  
+  if (tweetText === '' || tweetText === null) {
+    alert("Empty tweets aren't very fun to read. Share with us what you're thinking!");
+    return
+  }
+
+  if (tweetText.length > 140) {
+    alert("Oops! Looks like your tweet is over our maximum 140 characters. Please revise your tweet and try again.");
+    return
+  }
+
   $.ajax("/tweets", { method: "POST", data: data, });
   document.querySelector("form").reset();
   loadTweets();
