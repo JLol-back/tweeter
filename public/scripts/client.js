@@ -8,6 +8,15 @@ $(document).ready(function() {
 
 const createTweetElement = function(tweetData) {
 
+  
+//Escape function to prevent malicious XSS in tweet content
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const tweetHTML = `
         <article class="tweet">
           <header>
@@ -18,7 +27,7 @@ const createTweetElement = function(tweetData) {
             <h4 class="handle">${tweetData.user.handle}</h4>
           </header>
             <div class="tweet-content">
-              <p>${tweetData.content.text}</p>
+              <p>${escape(tweetData.content.text)}</p>
             </div>
             <hr>
           <footer>
@@ -70,6 +79,7 @@ $( "form" ).on( "submit", function( event ) {
   const data = $( this ).serialize();
 
   console.log(data);
+
   const tweetText = data.slice(5);
   
   if (tweetText === '' || tweetText === null) {
