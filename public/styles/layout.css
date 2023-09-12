@@ -40,3 +40,42 @@ main {
   /*border-style: dashed;*/
   flex-direction: column;
 }
+
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+
+body {
+  flex-direction: row;
+  justify-content: space-between;
+  }
+
+nav {
+  align-self: flex-start;
+}
+
+
+
+header.profile {
+ width: 30%;
+ margin-left: 50px;
+ margin-top: 100px;
+ padding-top: 30px;
+ height: auto;
+}
+
+main {
+ width: 50%;
+ margin-top: 200px;
+ margin-right: 50px;
+}
+
+header.profile .avatar {
+  padding-top: 10px;
+  width: auto;
+ }
+
+
+
+
+}
