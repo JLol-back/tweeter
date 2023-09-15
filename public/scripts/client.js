@@ -53,9 +53,6 @@ const renderTweets = function(tweets) {
 
 };
 
-//renderTweets(data);
-
-
 
 const loadTweets = function () {
   $.ajax("/tweets", { method: "GET" })
@@ -68,33 +65,38 @@ const loadTweets = function () {
 loadTweets();
 
 
-/**
- * On form submit, prevent the default form action to user stays on page,
- * transform form data into a query string, asynchronously POST data to
- * the tweets route, and finally, clear the form.
- */
 
 $( "form" ).on( "submit", function( event ) {
+  //Prevent the default form action to user stays on page
   event.preventDefault();
   const data = $( this ).serialize();
-
-  console.log(data);
-
-  const tweetText = data.slice(5);
+  const tweetData = data.slice(5);
+  // Clean up tweet content to be able to accurately validate length
+  const tweetText = tweetData.replaceAll('%20', ' ');
   
-  if (tweetText === '' || tweetText === null) {
-    alert("Empty tweets aren't very fun to read. Share with us what you're thinking!");
+  // Reset (hide) any error messages before form validation
+  $("#empty-error").fadeOut();
+  $("#length-error").fadeOut();
+  
+  
+  // If user submits a tweet with no content, display an appropriate error pop up.
+  if (tweetData === '' || tweetData === null) {
+    $("#empty-error").fadeIn();
     return
   }
-
+  
+  // If user submits a tweet that exceed the character limit, display an appropriate error pop up.
   if (tweetText.length > 140) {
-    alert("Oops! Looks like your tweet is over our maximum 140 characters. Please revise your tweet and try again.");
+    $("#length-error").fadeIn();
     return
   }
-
+  
+  // If validation passes, post form to 'db' and call the loadTweets handler to display the new tweet.
   $.ajax("/tweets", { method: "POST", data: data, });
-  document.querySelector("form").reset();
   loadTweets();
+  // Clear form after successful submit event.
+  document.querySelector("form").reset();
+  
 });
 
 
