@@ -5,46 +5,57 @@
  */
 
 $(document).ready(function() {
-
-const createTweetElement = function(tweetData) {
-
   
-//Escape function to prevent malicious XSS in tweet content
+  /**
+  * createTweetElement takes in a tweet object and returns 
+  * a tweet <article> element containing the entire HTML structure of the tweet.
+  * @param {object} tweetData  
+  */
 
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
+  const createTweetElement = function(tweetData) {
 
-  const tweetHTML = `
-        <article class="tweet">
-          <header>
-            <div>
-              <img height="54px" src="${tweetData.user.avatars}">
-              <h4>${tweetData.user.name}</h4>
-            </div>
-            <h4 class="handle">${tweetData.user.handle}</h4>
-          </header>
-            <div class="tweet-content">
-              <p>${escape(tweetData.content.text)}</p>
-            </div>
-            <hr>
-          <footer>
-           <p>${timeago.format(tweetData.created_at)}</p>
-           <div class="tweet-icons">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-           </div>
-          </footer>
-        </article>
-        `;
+    //Escape function to prevent malicious XSS in tweet content
+
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
+    const tweetHTML = `
+          <article class="tweet">
+            <header>
+              <div>
+                <img height="54px" src="${tweetData.user.avatars}">
+                <h4>${tweetData.user.name}</h4>
+              </div>
+              <h4 class="handle">${tweetData.user.handle}</h4>
+            </header>
+              <div class="tweet-content">
+                <p>${escape(tweetData.content.text)}</p>
+              </div>
+              <hr>
+            <footer>
+            <p>${timeago.format(tweetData.created_at)}</p>
+            <div class="tweet-icons">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+             </div>
+            </footer>
+          </article>
+          `;
   
-  return tweetHTML;      
-}
+    return tweetHTML;      
+  }
 
-const renderTweets = function(tweets) {
+/**
+ * renderTweets taking in an array of tweet objects
+ * and then appends each one to the tweets-container on the frontend.
+ * @param {array of objects} tweets 
+ */
+
+  const renderTweets = function(tweets) {
 
    tweets.forEach(tweet => {
     let $tweet = createTweetElement(tweet);
@@ -53,6 +64,10 @@ const renderTweets = function(tweets) {
 
 };
 
+/**
+ * loadTweets uses jQuery to make an async Ajax request to the /tweets route
+ * which receives the aray of tweets as JSON. 
+ */
 
 const loadTweets = function () {
   $.ajax("/tweets", { method: "GET" })
@@ -64,7 +79,7 @@ const loadTweets = function () {
 
 loadTweets();
 
-
+//------- TWEET FORM SUBMISSION LOGIC -------//
 
 $( "form" ).on( "submit", function( event ) {
   //Prevent the default form action to user stays on page
