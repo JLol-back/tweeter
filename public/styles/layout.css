@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -22,8 +25,6 @@ body {
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   font-style: normal;
-  /*border: 3px yellow;*/
-  /*border-style: dashed;*/
   flex-direction: column;
   align-items: center;
 }
@@ -36,8 +37,6 @@ main {
   display: flex;
   width: 90%;
   height: 500px;
-  /*border: 2px red;*/
-  /*border-style: dashed;*/
   flex-direction: column;
 }
 
@@ -45,37 +44,15 @@ main {
 /* Desktop styles */
 @media only screen and (min-width: 1024px) {
 
-body {
-  flex-direction: row;
-  justify-content: space-between;
+  body {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-nav {
-  align-self: flex-start;
-}
-
-
-
-header.profile {
- width: 30%;
- margin-left: 50px;
- margin-top: 100px;
- padding-top: 30px;
- height: auto;
-}
-
-main {
- width: 50%;
- margin-top: 200px;
- margin-right: 50px;
-}
-
-header.profile .avatar {
-  padding-top: 10px;
-  width: auto;
- }
-
-
-
+  main {
+    width: 50%;
+    margin-top: 200px;
+    margin-right: 50px;
+  }
 
 }

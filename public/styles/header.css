@@ -9,3 +9,44 @@ header.profile {
   justify-content: center;
   align-items: center;
 }
+
+
+/* Desktop Styles */
+
+@media only screen and (min-width: 1024px) {
+
+  header.profile {
+    width: 30%;
+    margin-left: 50px;
+    margin-top: 100px;
+    padding-top: 30px;
+    height: auto;
+  }
+
+  header.profile .avatar {
+    padding-top: 10px;
+    width: auto;
+  }
+
+
+}
+
+
+/* Mobile styles */
+@media only screen and (max-width: 550px) {
+
+  header.profile {
+    width: 100%;
+    height: fit-content;
+  }
+
+  header.profile h2 {
+    font-size: 22px;
+
+  }
+
+  header.profile img {
+    width: 100px;
+  }
+
+}

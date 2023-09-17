@@ -8,7 +8,7 @@ nav {
   color: #FFFFFF;
   padding-left: 1.5em;
   padding-right: 1.5em;
- 
+
 }
 
 .nav-icon {
@@ -18,7 +18,7 @@ nav {
   flex-direction: row;
   align-items: flex-end;
   padding-bottom: 10px;
- }
+}
 
 .nav-cta {
   display: flex;
@@ -33,6 +33,32 @@ nav {
 
   nav {
     background-color: transparent;
+    position: top;
+  }
+
+}
+
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+
+  nav {
+    align-self: flex-start;
+  }
+
+}
+
+
+/* Mobile styles */
+@media only screen and (max-width: 550px) {
+
+  div.nav-cta {
+    display: none;
+  }
+
+  nav {
+    justify-content: center;
+    top: 0;
   }
 
 }

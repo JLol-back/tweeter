@@ -48,7 +48,7 @@ form div {
 }
 
 .counter.character-error {
-  color:red;
+  color: red;
 }
 
 
@@ -114,7 +114,7 @@ article div.tweet-icons {
 
 article div.tweet-icons i {
   margin: 5px;
-  color:#4056A1;
+  color: #4056A1;
 }
 
 article div.tweet-icons :hover {
@@ -122,3 +122,39 @@ article div.tweet-icons :hover {
 }
 
 
+/* Tweet Errors */
+
+#empty-error {
+  display: none;
+}
+
+#length-error {
+  display: none;
+}
+
+
+
+div.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 10px;
+  ;
+  color: red;
+  box-shadow: 2px 2px 2px grey;
+}
+
+div.error h6 {
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+div.error p {
+  font-size: 16px;
+  height: fit-content;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
