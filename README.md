@@ -2,7 +2,17 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+Users can create short posts of up to 140 characters and have them append to the main page. Posts are sequential, with the most recent posts appearing at the top of the page. To do so, Tweeter asynchronously fetches a list of posts from a simplified ‘server’ and allows users to add posts to this list dynamically. 
+
+
+## Demo
+
+<img title="Tweeter UI " alt="Tweeter UI" src="/public/images/tweeter-ui.png">
+
+<img title="Character Counter" alt="Character Counter" src="/public/images/character-counter.gif">
+
+<img title="Tweet Error Handling" alt="Tweet Error Handling" src="/public/images/tweet-errors.gif">
+
 
 ## Getting Started
 
@@ -14,5 +24,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
-- Express
+- Express 4.18.2 or above
 - Node 5.10.x or above
+- Body Parser 1.20.2
+- Chance 1.1.11
+- md5 2.3.0
