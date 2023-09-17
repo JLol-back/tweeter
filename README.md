@@ -7,9 +7,15 @@ Users can create short posts of up to 140 characters and have them append to the
 
 ## Demo
 
+### Tweeter UI
+
 <img title="Tweeter UI " alt="Tweeter UI" src="/public/images/tweeter-ui.png">
 
+### Tweeter Character Counter
+
 <img title="Character Counter" alt="Character Counter" src="/public/images/character-counter.gif">
+
+### Error Handling
 
 <img title="Tweet Error Handling" alt="Tweet Error Handling" src="/public/images/tweet-errors.gif">
 
