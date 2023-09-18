@@ -109,9 +109,11 @@ $( "form" ).on( "submit", function( event ) {
   // If validation passes, post form to 'db' and call the loadTweets handler to display the new tweet.
   $.ajax("/tweets", { method: "POST", data: data, });
   loadTweets();
-  // Clear form after successful submit event.
-  document.querySelector("form").reset();
   
+  // Clear form and reset counter after successful submit event.
+  document.querySelector("form").reset(); 
+  $(".counter").text("140");
+
 });
 
 
