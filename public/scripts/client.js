@@ -95,7 +95,7 @@ $( "form" ).on( "submit", function( event ) {
   
   
   // If user submits a tweet with no content, display an appropriate error pop up.
-  if (tweetData === '' || tweetData === null) {
+  if (!tweetData) {
     $("#empty-error").fadeIn();
     return
   }
