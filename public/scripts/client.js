@@ -56,13 +56,15 @@ $(document).ready(function() {
  */
 
   const renderTweets = function(tweets) {
-
+  // Empty tweet container to avoid diplaying duplicate tweet content
+   $('.tweet-container').empty();
    tweets.forEach(tweet => {
     let $tweet = createTweetElement(tweet);
     $('.tweet-container').prepend($tweet);
    });
 
 };
+
 
 /**
  * loadTweets uses jQuery to make an async Ajax request to the /tweets route
@@ -73,11 +75,15 @@ const loadTweets = function () {
   $.ajax("/tweets", { method: "GET" })
   .then(function (tweetJSON) {
     console.log('Success: ', tweetJSON);
+    // Potentially empty tweet container here
     renderTweets(tweetJSON);
   })
 }
 
+//Initial rendering of tweets from db on page load.
+
 loadTweets();
+
 
 //------- TWEET FORM SUBMISSION LOGIC -------//
 
@@ -107,9 +113,12 @@ $( "form" ).on( "submit", function( event ) {
   }
   
   // If validation passes, post form to 'db' and call the loadTweets handler to display the new tweet.
-  $.ajax("/tweets", { method: "POST", data: data, });
-  loadTweets();
-  
+  $.ajax("/tweets", { 
+    method: "POST", 
+    data: data,
+    success: () =>  {loadTweets()}
+  });
+
   // Clear form and reset counter after successful submit event.
   document.querySelector("form").reset(); 
   $(".counter").text("140");
