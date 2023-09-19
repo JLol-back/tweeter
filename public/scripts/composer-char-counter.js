@@ -2,7 +2,7 @@ $(document).ready(function() {
   
   // Following each keyup event within the tweet form text area
 
-  $("#tweet-text").on("keyup", function (e) {
+  $("#tweet-text").on("input", function (e) {
     textArea = $("#tweet-text");
 
     maxChar = 140;
